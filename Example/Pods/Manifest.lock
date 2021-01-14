@@ -1,0 +1,16 @@
+PODS:
+  - PALOtherApp (0.1.0)
+
+DEPENDENCIES:
+  - PALOtherApp (from `../`)
+
+EXTERNAL SOURCES:
+  PALOtherApp:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  PALOtherApp: 65b5eea461212257244dad2e1a3b7ab18caa10e3
+
+PODFILE CHECKSUM: 55a1c12192f199d2f16e327602f833443707eb80
+
+COCOAPODS: 1.10.0
