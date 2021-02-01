@@ -52,6 +52,7 @@ open class OtherAppViewController: UIViewController {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(OtherAppCell.self, forCellReuseIdentifier: OtherAppCell.identifer)
+        tableView.clipsToBounds = true
         return tableView
     }()
     
@@ -86,7 +87,26 @@ open class OtherAppViewController: UIViewController {
     open override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = .white
+        self.view.clipsToBounds = true
+        if #available(iOS 13.0, *) {
+            self.view.backgroundColor = UIColor(dynamicProvider: { (traitCollection) -> UIColor in
+                if traitCollection.userInterfaceStyle == .light {
+                    return UIColor(white: 255/255, alpha: 1)
+                } else {
+                    return UIColor(white: 0/255, alpha: 1)
+                }
+            })
+            self.activityIndicatorView.color = UIColor(dynamicProvider: { (traitCollection) -> UIColor in
+                if traitCollection.userInterfaceStyle == .light {
+                    return .gray
+                } else {
+                    return UIColor(white: 255/255, alpha: 1)
+                }
+            })
+        } else {
+            self.view.backgroundColor = UIColor(white: 255/255, alpha: 1)
+            self.activityIndicatorView.color = .gray
+        }
         
         self.view.addSubview(self.tableView)
         self.view.addSubview(self.activityIndicatorView)
