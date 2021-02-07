@@ -38,9 +38,14 @@ open class OtherApp {
             if let value = element["nameEn"] as? String { self.name = value }
             if let value = element["hintEn"] as? [String] { self.images = value}
             if let value = element["descEn"] as? String { self.desc = value }
-        } else {
+        }
+        if self.name == "" {
             if let value = element["nameDefault"] as? String { self.name = value }
+        }
+        if self.images.isEmpty {
             if let value = element["hintDefault"] as? [String] { self.images = value }
+        }
+        if self.desc == "" {
             if let value = element["descDefault"] as? String { self.desc = value }
         }
         if let value = element["url"] as? String { self.url = value }

@@ -16,7 +16,10 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Present", style: .plain, target: self, action: #selector(self.presentTap(_:)))
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Push", style: .plain, target: self, action: #selector(self.pushTap(_:)))
+        self.navigationItem.rightBarButtonItems = [
+            UIBarButtonItem(title: "Push", style: .plain, target: self, action: #selector(self.pushTap(_:))),
+            UIBarButtonItem(title: "Default", style: .plain, target: self, action: #selector(self.defaultTap(_:))),
+        ]
     }
     
     @objc private func presentTap(_ sender: UIBarButtonItem) {
@@ -27,6 +30,12 @@ class ViewController: UIViewController {
     
     @objc private func pushTap(_ sender: UIBarButtonItem) {
         let viewController = OtherAppViewController(languageCode: "en", urlPath: "https://raw.githubusercontent.com/pikachu987/ProjectData/master/appList.json")
+        viewController.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: viewController, action: #selector(viewController.backTap(_:)))
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+
+    @objc private func defaultTap(_ sender: UIBarButtonItem) {
+        let viewController = OtherAppViewController(languageCode: "", urlPath: "https://raw.githubusercontent.com/pikachu987/ProjectData/master/appList.json")
         viewController.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: viewController, action: #selector(viewController.backTap(_:)))
         self.navigationController?.pushViewController(viewController, animated: true)
     }
