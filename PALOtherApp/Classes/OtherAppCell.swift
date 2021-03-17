@@ -65,7 +65,7 @@ class OtherAppCell: UITableViewCell {
         let flow = UICollectionViewFlowLayout()
         flow.scrollDirection = .horizontal
         flow.sectionInset = UIEdgeInsets(top: 0, left: 4, bottom: 0, right: 4)
-        flow.itemSize = CGSize(width: 1242*height/2688, height: height)
+        flow.itemSize = CGSize(width: 200*height/433, height: height)
         flow.minimumInteritemSpacing = 0
         flow.minimumLineSpacing = 4
         
