@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'PALOtherApp'
-  s.version          = '0.1.3'
+  s.version          = '0.1.4'
   s.summary          = 'PALOtherApp'
   s.description      = <<-DESC
   This is My lib

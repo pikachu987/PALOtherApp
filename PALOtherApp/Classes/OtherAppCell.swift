@@ -177,7 +177,7 @@ extension OtherAppCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OtherAppImageCell.identifier, for: indexPath) as? OtherAppImageCell else { fatalError() }
-        cell.item = self.item?.images[indexPath.row]
+        cell.item = self.item?.images[indexPath.item]
         return cell
     }
 }
